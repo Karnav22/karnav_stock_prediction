@@ -60,8 +60,11 @@ for i in range(100,len(scaled_data)):
 
 x_data, y_data = np.array(x_data), np.array(y_data)
 
-predictions = model.predict(x_data)
-
+#predictions = model.predict(x_data)
+try:
+    predictions = model.predict(x_data)
+except Exception as e:
+    print("An error occurred during prediction:", e)
 inv_pre = scaler.inverse_transform(predictions)
 inv_y_test = scaler.inverse_transform(y_data)
 
