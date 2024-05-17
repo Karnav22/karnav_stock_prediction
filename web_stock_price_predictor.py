@@ -14,7 +14,7 @@ from datetime import datetime
 end = datetime.now() #st.date_input("Enter your date")
 start = datetime(end.year-20,end.month,end.day)
 
-google_data = yf.download(stock, start, end)
+google_data = yf.download(stock=stock, start=start, end=end)
 
 model = load_model("Latest_stock_price_model.keras")
 st.subheader("Stock Data")
