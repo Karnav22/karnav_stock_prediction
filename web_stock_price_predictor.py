@@ -10,7 +10,7 @@ st.title("Stock Price Predictor App")
 stock = st.text_input("Enter the Stock ID", "GOOG")
 
 from datetime import datetime
-end = datetime.now()
+end = datetime.now()#st.date_input("Enter your date")
 start = datetime(end.year-20,end.month,end.day)
 
 google_data = yf.download(stock, start, end)
@@ -73,9 +73,10 @@ ploting_data = pd.DataFrame(
 )
 st.subheader("Original values vs Predicted values")
 st.write(ploting_data)
-
 st.subheader('Original Close Price vs Predicted Close price')
 fig = plt.figure(figsize=(15,6))
 plt.plot(pd.concat([google_data.Close[:splitting_len+100],ploting_data], axis=0))
 plt.legend(["Data- not used", "Original Test data", "Predicted Test data"])
 st.pyplot(fig)
+st.subheader("Original values vs Predicted values of Today")
+st.write(ploting_data.tail(1))
