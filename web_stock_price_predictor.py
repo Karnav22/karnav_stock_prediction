@@ -10,7 +10,8 @@ st.title("Stock Price Predictor App")
 stock = st.text_input("Enter the Stock ID", "GOOG")
 
 from datetime import datetime
-end = datetime.now()#st.date_input("Enter your date")
+
+end = datetime.now() #st.date_input("Enter your date")
 start = datetime(end.year-20,end.month,end.day)
 
 google_data = yf.download(stock, start, end)
